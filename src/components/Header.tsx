@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
   const { siteSettings, loading } = useSiteSettings();
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-orange-500 to-red-600 shadow-lg border-b-2 md:border-b-4 border-red-700">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-red-600 to-red-700 shadow-lg border-b-2 md:border-b-4 border-red-800">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between h-14 md:h-16">
           <button 

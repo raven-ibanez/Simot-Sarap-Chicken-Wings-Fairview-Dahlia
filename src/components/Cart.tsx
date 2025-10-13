@@ -26,11 +26,11 @@ const Cart: React.FC<CartProps> = ({
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="text-center py-16">
           <div className="text-6xl mb-4">🛒</div>
-          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 mb-2">Your cart is empty</h2>
+          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-700 mb-2">Your cart is empty</h2>
           <p className="text-gray-700 mb-6 text-lg">Add some delicious items to get started!</p>
           <button
             onClick={onContinueShopping}
-            className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-3 rounded-full hover:from-orange-600 hover:to-red-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 font-bold text-lg"
+            className="bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-3 rounded-full hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 font-bold text-lg"
           >
             Browse Menu
           </button>
@@ -44,12 +44,12 @@ const Cart: React.FC<CartProps> = ({
       <div className="flex items-center justify-between mb-8">
         <button
           onClick={onContinueShopping}
-          className="flex items-center space-x-2 text-gray-700 hover:text-orange-600 transition-colors duration-200 font-semibold"
+          className="flex items-center space-x-2 text-gray-700 hover:text-red-600 transition-colors duration-200 font-semibold"
         >
           <ArrowLeft className="h-5 w-5" />
           <span>Continue Shopping</span>
         </button>
-        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">Your Cart</h1>
+        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-700">Your Cart</h1>
         <button
           onClick={clearCart}
           className="text-red-600 hover:text-red-700 transition-colors duration-200 font-semibold"
@@ -80,17 +80,17 @@ const Cart: React.FC<CartProps> = ({
               </div>
               
               <div className="flex items-center space-x-4 ml-4">
-                <div className="flex items-center space-x-3 bg-gradient-to-r from-orange-100 to-red-100 rounded-full p-1 border-2 border-orange-300">
+                <div className="flex items-center space-x-3 bg-gradient-to-r from-red-100 to-red-200 rounded-full p-1 border-2 border-red-300">
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                    className="p-2 hover:bg-orange-200 rounded-full transition-colors duration-200"
+                    className="p-2 hover:bg-red-200 rounded-full transition-colors duration-200"
                   >
                     <Minus className="h-4 w-4 text-red-700" />
                   </button>
                   <span className="font-bold text-red-700 min-w-[32px] text-center">{item.quantity}</span>
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                    className="p-2 hover:bg-orange-200 rounded-full transition-colors duration-200"
+                    className="p-2 hover:bg-red-200 rounded-full transition-colors duration-200"
                   >
                     <Plus className="h-4 w-4 text-red-700" />
                   </button>
@@ -112,15 +112,15 @@ const Cart: React.FC<CartProps> = ({
         ))}
       </div>
 
-      <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl shadow-xl p-6 border-2 border-orange-200">
+      <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-2xl shadow-xl p-6 border-2 border-red-200">
         <div className="flex items-center justify-between text-3xl font-bold text-black mb-6">
           <span>Total:</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">₱{parseFloat(getTotalPrice() || 0).toFixed(2)}</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-700">₱{parseFloat(getTotalPrice() || 0).toFixed(2)}</span>
         </div>
         
         <button
           onClick={onCheckout}
-          className="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white py-4 rounded-xl hover:from-orange-600 hover:to-red-700 transition-all duration-200 transform hover:scale-[1.02] font-bold text-lg shadow-xl border-2 border-yellow-300"
+          className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-4 rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 transform hover:scale-[1.02] font-bold text-lg shadow-xl border-2 border-yellow-300"
         >
           Proceed to Checkout
         </button>

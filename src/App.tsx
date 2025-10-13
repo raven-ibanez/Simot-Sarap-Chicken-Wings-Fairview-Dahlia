@@ -31,7 +31,7 @@ function MainApp() {
     : menuItems.filter(item => item.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-orange-100 to-red-50 font-inter">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-red-100 to-red-50 font-inter">
       <Header 
         cartItemsCount={cart.getTotalItems()}
         onCartClick={() => handleViewChange('cart')}

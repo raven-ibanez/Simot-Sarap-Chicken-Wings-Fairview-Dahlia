@@ -12,10 +12,10 @@
 .ring-ramen-gold { --tw-ring-color: #E0A106; }
 
 /* Chicken Wings Theme */
-.bg-chicken-orange { background-color: #FF6B35; }
-.bg-chicken-orange-dark { background-color: #E85A2B; }
+.bg-chicken-red { background-color: #DC2626; }
+.bg-chicken-red-dark { background-color: #B91C1C; }
 .text-chicken-red { color: #DC2626; }
-.border-chicken-orange { border-color: #FF6B35; }
+.border-chicken-red { border-color: #DC2626; }
 
 /* Custom Animations */
 @keyframes shimmer {

@@ -16,11 +16,10 @@ export default {
           kimchi: '#B81D24'
         },
         chicken: {
-          orange: '#FF6B35',
-          'orange-dark': '#E85A2B',
-          'orange-light': '#FF8C42',
-          'red-bright': '#DC2626',
+          red: '#DC2626',
           'red-dark': '#B91C1C',
+          'red-light': '#EF4444',
+          'red-bright': '#DC2626',
           'yellow': '#FCD34D',
           'yellow-dark': '#F59E0B'
         }
