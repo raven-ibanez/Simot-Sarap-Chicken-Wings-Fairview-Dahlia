@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
               <div className="bg-gradient-to-br from-red-500 to-red-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 md:border-4 border-yellow-300 animate-bounce-gentle" style={{ animationDelay: '0.2s' }}>
                 <div className="font-black text-sm md:text-base flex items-center gap-2">
                   <span className="text-lg md:text-xl">🔥</span>
-                  <span>Hot & Spicy</span>
+                  <span>Flavorful Taste</span>
                 </div>
               </div>
               <div className="bg-gradient-to-br from-green-500 to-green-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 md:border-4 border-white animate-bounce-gentle" style={{ animationDelay: '0.4s' }}>
