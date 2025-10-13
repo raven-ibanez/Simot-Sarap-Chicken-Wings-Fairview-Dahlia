@@ -92,11 +92,16 @@ const Menu: React.FC<MenuProps> = ({ menuItems, addToCart, cartItems, updateQuan
         onCategoryClick={handleCategoryClick}
       />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-noto font-semibold text-black mb-4">Our Menu</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Discover our selection of authentic dim sum, flavorful noodles, and traditional Asian dishes, 
-          all prepared with fresh ingredients and authentic techniques.
+      <div className="text-center mb-16">
+        <div className="inline-block bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-2 rounded-full font-bold text-sm mb-4 shadow-lg">
+          🍗 OUR MENU
+        </div>
+        <h2 className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 mb-6 drop-shadow-lg">
+          CHOOSE YOUR
+          <span className="block text-5xl md:text-6xl">FAVORITE!</span>
+        </h2>
+        <p className="text-gray-800 max-w-2xl mx-auto text-xl font-semibold">
+          Fresh, Crispy, and Delicious Chicken Wings & More!
         </p>
       </div>
 
@@ -106,10 +111,19 @@ const Menu: React.FC<MenuProps> = ({ menuItems, addToCart, cartItems, updateQuan
         if (categoryItems.length === 0) return null;
         
         return (
-          <section key={category.id} id={category.id} className="mb-16">
-            <div className="flex items-center mb-8">
-              <span className="text-3xl mr-3">{category.icon}</span>
-              <h3 className="text-3xl font-noto font-medium text-black">{category.name}</h3>
+          <section key={category.id} id={category.id} className="mb-20">
+            <div className="flex items-center justify-between mb-10 bg-gradient-to-r from-orange-500 to-red-600 rounded-3xl p-6 shadow-2xl border-4 border-yellow-300">
+              <div className="flex items-center">
+                <span className="text-5xl mr-4">{category.icon}</span>
+                <h3 className="text-4xl md:text-5xl font-black text-white">
+                  {category.name}
+                </h3>
+              </div>
+              <div className="hidden md:block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-yellow-300">
+                <span className="text-yellow-300 font-bold text-lg">
+                  {categoryItems.length} Items
+                </span>
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

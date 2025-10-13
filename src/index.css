@@ -2,14 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ramen Yard Custom Styles */
-/* Minimal helpers for ramen palette when needed outside tailwind tokens */
+/* SIMOT SARAP Custom Styles */
+/* Vibrant orange and red theme for chicken wings branding */
 .bg-ramen-cream { background-color: #FFF3E0; }
 .bg-ramen-beige { background-color: #F7E7CE; }
 .text-ramen-red { color: #D7263D; }
 .text-ramen-dark { color: #0B0A0A; }
 .border-ramen-sesame { border-color: #D1C7B7; }
 .ring-ramen-gold { --tw-ring-color: #E0A106; }
+
+/* Chicken Wings Theme */
+.bg-chicken-orange { background-color: #FF6B35; }
+.bg-chicken-orange-dark { background-color: #E85A2B; }
+.text-chicken-red { color: #DC2626; }
+.border-chicken-orange { border-color: #FF6B35; }
+
+/* Custom Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-scroll {
+  animation: scroll 15s linear infinite;
+}
 
 /* Hide scrollbar for mobile nav */
 .scrollbar-hide {

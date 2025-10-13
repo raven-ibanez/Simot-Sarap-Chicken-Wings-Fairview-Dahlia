@@ -14,6 +14,15 @@ export default {
           sesame: '#D1C7B7',
           seaweed: '#1F2937',
           kimchi: '#B81D24'
+        },
+        chicken: {
+          orange: '#FF6B35',
+          'orange-dark': '#E85A2B',
+          'orange-light': '#FF8C42',
+          'red-bright': '#DC2626',
+          'red-dark': '#B91C1C',
+          'yellow': '#FCD34D',
+          'yellow-dark': '#F59E0B'
         }
       },
       fontFamily: {
