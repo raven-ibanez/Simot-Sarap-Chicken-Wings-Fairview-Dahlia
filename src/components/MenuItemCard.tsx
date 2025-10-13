@@ -185,9 +185,9 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
         </div>
       )}
 
-      <div className={`bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group animate-scale-in border-4 border-orange-200 hover:border-orange-400 ${!item.available ? 'opacity-60' : ''}`}>
+      <div className={`bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group animate-scale-in border-2 md:border-4 border-orange-200 hover:border-orange-400 ${!item.available ? 'opacity-60' : ''}`}>
         {/* Image Container with Badges */}
-        <div className="relative h-56 bg-gradient-to-br from-orange-100 to-red-100">
+        <div className="relative h-48 md:h-56 bg-gradient-to-br from-orange-100 to-red-100">
           {item.image ? (
             <img
               src={item.image}
@@ -206,28 +206,28 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
           </div>
           
           {/* Badges */}
-          <div className="absolute top-3 left-3 flex flex-col gap-2">
+          <div className="absolute top-2 left-2 md:top-3 md:left-3 flex flex-col gap-1 md:gap-2">
             {item.isOnDiscount && item.discountPrice && (
-              <div className="bg-gradient-to-r from-red-600 to-red-700 text-white text-sm font-black px-4 py-2 rounded-full shadow-2xl animate-pulse border-4 border-yellow-300">
+              <div className="bg-gradient-to-r from-red-600 to-red-700 text-white text-xs md:text-sm font-black px-2 md:px-4 py-1 md:py-2 rounded-full shadow-2xl animate-pulse border-2 md:border-4 border-yellow-300">
                 🔥 SALE
               </div>
             )}
             {item.popular && (
-              <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-black px-4 py-2 rounded-full shadow-2xl border-4 border-yellow-300">
+              <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white text-xs md:text-sm font-black px-2 md:px-4 py-1 md:py-2 rounded-full shadow-2xl border-2 md:border-4 border-yellow-300">
                 ⭐ BESTSELLER
               </div>
             )}
           </div>
           
           {!item.available && (
-            <div className="absolute top-3 right-3 bg-red-700 text-white text-sm font-black px-4 py-2 rounded-full shadow-2xl border-4 border-yellow-300">
+            <div className="absolute top-2 right-2 md:top-3 md:right-3 bg-red-700 text-white text-xs md:text-sm font-black px-2 md:px-4 py-1 md:py-2 rounded-full shadow-2xl border-2 md:border-4 border-yellow-300">
               SOLD OUT
             </div>
           )}
           
           {/* Discount Percentage Badge */}
           {item.isOnDiscount && item.discountPrice && (
-            <div className="absolute bottom-3 right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-red-900 text-sm font-black px-4 py-2 rounded-full shadow-2xl border-4 border-white">
+            <div className="absolute bottom-2 right-2 md:bottom-3 md:right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-red-900 text-xs md:text-sm font-black px-2 md:px-4 py-1 md:py-2 rounded-full shadow-2xl border-2 md:border-4 border-white">
               {Math.round(((item.basePrice - item.discountPrice) / item.basePrice) * 100)}% OFF
             </div>
           )}
@@ -244,29 +244,29 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
             )}
           </div>
           
-          <p className={`text-base mb-5 leading-relaxed font-medium ${!item.available ? 'text-gray-400' : 'text-gray-700'}`}>
+          <p className={`text-sm md:text-base mb-4 md:mb-5 leading-relaxed font-medium ${!item.available ? 'text-gray-400' : 'text-gray-700'}`}>
             {!item.available ? 'Currently Unavailable' : item.description}
           </p>
           
           {/* Pricing Section */}
-          <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center justify-between mb-4 md:mb-5">
             <div className="flex-1">
               {item.isOnDiscount && item.discountPrice ? (
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-3">
-                    <span className="text-3xl font-black text-red-600">
+                <div className="space-y-1 md:space-y-2">
+                  <div className="flex items-center space-x-2 md:space-x-3">
+                    <span className="text-2xl md:text-3xl font-black text-red-600">
                       ₱{item.discountPrice.toFixed(2)}
                     </span>
-                    <span className="text-base text-gray-500 line-through font-bold">
+                    <span className="text-sm md:text-base text-gray-500 line-through font-bold">
                       ₱{item.basePrice.toFixed(2)}
                     </span>
                   </div>
-                  <div className="text-sm text-red-600 font-bold">
+                  <div className="text-xs md:text-sm text-red-600 font-bold">
                     💰 Save ₱{(item.basePrice - item.discountPrice).toFixed(2)}
                   </div>
                 </div>
               ) : (
-                <div className="text-3xl font-black text-gray-900">
+                <div className="text-2xl md:text-3xl font-black text-gray-900">
                   ₱{item.basePrice.toFixed(2)}
                 </div>
               )}
@@ -290,12 +290,12 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
               ) : quantity === 0 ? (
                 <button
                   onClick={handleAddToCart}
-                  className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-3 rounded-2xl hover:from-orange-600 hover:to-red-700 transition-all duration-200 transform hover:scale-110 font-black text-base shadow-2xl hover:shadow-3xl border-4 border-yellow-300"
+                  className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 md:px-8 py-2 md:py-3 rounded-xl md:rounded-2xl hover:from-orange-600 hover:to-red-700 transition-all duration-200 transform hover:scale-110 font-black text-sm md:text-base shadow-2xl hover:shadow-3xl border-2 md:border-4 border-yellow-300"
                 >
                   {item.variations?.length || item.addOns?.length ? '✨ CUSTOMIZE' : '➕ ADD TO CART'}
                 </button>
               ) : (
-                <div className="flex items-center space-x-2 bg-gradient-to-r from-orange-100 to-red-100 rounded-2xl p-2 border-4 border-orange-300 shadow-lg">
+                <div className="flex items-center space-x-1 md:space-x-2 bg-gradient-to-r from-orange-100 to-red-100 rounded-xl md:rounded-2xl p-1.5 md:p-2 border-2 md:border-4 border-orange-300 shadow-lg">
                   <button
                     onClick={handleDecrement}
                     className="p-2 hover:bg-orange-200 rounded-lg transition-colors duration-200 hover:scale-110"
