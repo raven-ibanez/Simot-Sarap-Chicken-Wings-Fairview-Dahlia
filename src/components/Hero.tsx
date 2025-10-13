@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
             </h1>
             
             <p className="text-base md:text-2xl text-red-100 font-bold animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Kapag chicken dapat simot sarap!
+            Kapag Chicken, Dapat Simot Sarap!
             </p>
 
             {/* Floating Text Cards */}
