@@ -13,6 +13,10 @@ const Checkout: React.FC<CheckoutProps> = ({ cartItems, totalPrice, onBack }) =>
   const { paymentMethods } = usePaymentMethods();
   const [customerName, setCustomerName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
+  const [deliveryType, setDeliveryType] = useState<'delivery' | 'pickup'>('delivery');
+  const [deliveryAddress, setDeliveryAddress] = useState('');
+  const [includeCutlery, setIncludeCutlery] = useState(true);
+  const [specialInstructions, setSpecialInstructions] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('gcash');
 
   React.useEffect(() => {
@@ -34,6 +38,7 @@ const Checkout: React.FC<CheckoutProps> = ({ cartItems, totalPrice, onBack }) =>
 
 👤 Customer: ${customerName}
 📞 Contact: ${contactNumber}
+${deliveryType === 'delivery' ? `📍 Delivery Address: ${deliveryAddress}` : '🏪 Pick-up Order'}
 
 📋 ORDER DETAILS:
 ${cartItems.map(item => {
@@ -56,6 +61,8 @@ ${cartItems.map(item => {
 
 💳 Payment: ${selectedPaymentMethod?.name || paymentMethod}
 📸 Payment Screenshot: Please attach your payment receipt screenshot
+${includeCutlery ? '🍴 Include Cutlery: Yes' : '🍴 Include Cutlery: No'}
+${specialInstructions ? `📝 Special Instructions: ${specialInstructions}` : ''}
 
 Please confirm this order to proceed. Thank you for choosing SIMOT SARAP! 🍗
     `.trim();
@@ -107,6 +114,83 @@ Please confirm this order to proceed. Thank you for choosing SIMOT SARAP! 🍗
                 className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                 placeholder="09XX XXX XXXX"
                 required
+              />
+            </div>
+
+            {/* Delivery Type Selection */}
+            <div>
+              <label className="block text-sm font-medium text-black mb-3">Order Type *</label>
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={() => setDeliveryType('delivery')}
+                  className={`p-4 rounded-lg border-2 transition-all duration-200 ${
+                    deliveryType === 'delivery'
+                      ? 'border-red-600 bg-red-600 text-white'
+                      : 'border-red-300 bg-white text-gray-700 hover:border-red-400'
+                  }`}
+                >
+                  <div className="flex flex-col items-center">
+                    <span className="text-2xl mb-1">🏠</span>
+                    <span className="font-medium">Delivery</span>
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDeliveryType('pickup')}
+                  className={`p-4 rounded-lg border-2 transition-all duration-200 ${
+                    deliveryType === 'pickup'
+                      ? 'border-red-600 bg-red-600 text-white'
+                      : 'border-red-300 bg-white text-gray-700 hover:border-red-400'
+                  }`}
+                >
+                  <div className="flex flex-col items-center">
+                    <span className="text-2xl mb-1">🏪</span>
+                    <span className="font-medium">Pick-up</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* Delivery Address */}
+            {deliveryType === 'delivery' && (
+              <div>
+                <label className="block text-sm font-medium text-black mb-2">Delivery Address *</label>
+                <textarea
+                  value={deliveryAddress}
+                  onChange={(e) => setDeliveryAddress(e.target.value)}
+                  className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 resize-none"
+                  placeholder="Enter your complete delivery address"
+                  rows={3}
+                  required
+                />
+              </div>
+            )}
+
+            {/* Cutlery Option */}
+            <div>
+              <label className="flex items-center space-x-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={includeCutlery}
+                  onChange={(e) => setIncludeCutlery(e.target.checked)}
+                  className="w-5 h-5 text-red-600 border-red-300 rounded focus:ring-2 focus:ring-red-500"
+                />
+                <span className="text-sm font-medium text-black">
+                  🍴 Include cutlery (spoon, fork, etc.)
+                </span>
+              </label>
+            </div>
+
+            {/* Special Instructions */}
+            <div>
+              <label className="block text-sm font-medium text-black mb-2">Special Instructions (Optional)</label>
+              <textarea
+                value={specialInstructions}
+                onChange={(e) => setSpecialInstructions(e.target.value)}
+                className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 resize-none"
+                placeholder="Any special requests or dietary requirements?"
+                rows={3}
               />
             </div>
           </form>
